@@ -20,19 +20,7 @@ export default {
   box-sizing: border-box;
 }
 
-// :root {
-//   /* 声明变量，让用户可以控制组件的样式 */
-//   --button-height: 32px;
-//   --font-size: 14px;
-//   --button-bg: white;
-//   --button-active-bg: #eee;
-//   --border-radius: 4px;
-//   --color: #333;
-//   --border-color: #999;
-//   --border-color-hover: #666;
-// }
-
 body {
-  // font-size: 14px;
+  font-size: 14px;
 }
 </style>
