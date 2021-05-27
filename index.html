@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wlinUi</title>
+    <style>
+        /* 公共样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* 声明变量，让用户可以控制组件的样式 */
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        #app {
+            /* margin: 20px; */
+        }
+
+        body {
+            font-size: 14px;
+        }
+        .demo{
+            border:1px solid #666;
+            min-height: 100px;
+        }
+    </style>
+    <style>
+    </style>
+</head>
+
+<body>
+
+
+    <div id="app" style="overflow-y: auto;">
+        <div class="wrap" style="width: 100%;box-sizing: border-box;padding:80px 0 60px 50px">
+
+          <!-- collapse -->
+          <!-- <wlin-collapse style="margin-bottom: 20px;" v-model="myTitle" >
+            <wlin-collapse-item title='标题1'>内容1</wlin-collapse-item>
+            <wlin-collapse-item title='标题2'>内容2</wlin-collapse-item>
+            <wlin-collapse-item title='标题3'>内容3</wlin-collapse-item>
+          </wlin-collapse> -->
+
+
+          <!-- popover组件 - top方向 -->
+          <!-- <wlin-popover>
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover> -->
+
+          <!-- popover组件 - bottom方向 -->
+          <!-- <wlin-popover position="bottom">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover> -->
+
+          <!-- popover组件 - left方向 -->
+          <!-- <wlin-popover position="left">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover> -->
+
+          <!-- popover组件 - right方向 -->
+          <!-- <wlin-popover position="right">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover> -->
+        </div>
+
+        <!-- <div class="wrap" style="width: 100%;box-sizing: border-box;padding:0 0 100px 50px">
+          <wlin-popover trigger="hover">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover>
+          <wlin-popover position="bottom" trigger="hover">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover>
+          <wlin-popover position="left" trigger="hover">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover>
+          <wlin-popover position="right" trigger="hover">
+            <template>
+              <div style="height: 30px;">popover-content</div>
+            </template>
+            <wlin-button slot="reference">点击</wlin-button>
+          </wlin-popover>
+        </div> -->
+
+        <!-- tab组件事件监听 -->
+        <wlin-my-test ></wlin-my-test>
+       
+        <!-- tab组件常规 -->
+        <!-- <wlin-tabs v-model="selectedTab">
+            <wlin-tabs-head>
+                <template slot="action">
+                    <button>操作</button>
+                </template>
+                <wlin-tabs-item name="home">首页</wlin-tabs-item>
+                <wlin-tabs-item name="video">视频</wlin-tabs-item>
+                <wlin-tabs-item name="setting">
+                    <wlin-icon style="position:relative;top:2px;left:2px;" name="setting"></wlin-icon>
+                    设置
+                </wlin-tabs-item>
+            </wlin-tabs-head>
+            <wlin-tabs-body>
+                <wlin-tabs-pane name="home">首页内容</wlin-tabs-pane>
+                <wlin-tabs-pane name="video">视频内容</wlin-tabs-pane>
+                <wlin-tabs-pane name="setting">设置内容</wlin-tabs-pane>
+            </wlin-tabs-body>
+        </wlin-tabs> -->
+
+
+        <!-- toast组件 -->
+        <button @click='showToastTop'>测试toastTop</button>
+        <button @click='showToastBottom'>测试toastBottom</button>
+        <button @click='showToastMiddle'>测试toastMiddle</button>
+
+
+        <!-- 分页组件-->
+        <!-- <wlin-pager :hide-if-one-page="true" :total-page="10" v-model="page"></wlin-pager> -->
+        <!-- <div>
+            <span>传统模式：</span><wlin-my-test ></wlin-my-test>
+        </div> -->
+        <!-- <div>
+            <span>简单模式：</span><wlin-my-test simple></wlin-my-test>
+        </div> -->
+
+
+
+        <!-- 布局组件区域 -->
+        <wlin-layout style="height: 50vh;">
+            <wlin-sider style="width: 200px;" class="demo">sider</wlin-sider>
+            <wlin-layout>
+                <wlin-header class="demo">header</wlin-header>
+                <wlin-content class="demo">content</wlin-content>
+                <wlin-footer class="demo">footer</wlin-footer>
+            </wlin-layout>
+        </wlin-layout>
+
+
+        <!-- row-col 栅格组件区域 -->
+        <!-- <div style="border:1px solid red"> -->
+            <!-- 支持均分的栅格 -->
+            <!-- <wlin-row>
+                <wlin-col>1</wlin-col>
+                <wlin-col>2</wlin-col>
+            </wlin-row>
+            <wlin-row>
+                <wlin-col>1</wlin-col>
+                <wlin-col>2</wlin-col>
+                <wlin-col>3</wlin-col>
+            </wlin-row>
+            <wlin-row>
+                <wlin-col>1</wlin-col>
+                <wlin-col>2</wlin-col>
+                <wlin-col>3</wlin-col>
+                <wlin-col>4</wlin-col>
+            </wlin-row> -->
+            <!-- 支持设置偏移量的栅格 -->
+            <!-- <wlin-row>
+                <wlin-col span='1'>1</wlin-col>
+                <wlin-col span='22' offset='1'>2</wlin-col>
+            </wlin-row>
+            <wlin-row>
+                <wlin-col span='3'>1</wlin-col>
+                <wlin-col span='10' offset='5'>2</wlin-col>
+                <wlin-col span='4' offset='2'>3</wlin-col>
+            </wlin-row> -->
+            <!-- 支持整体具备空隙gutter的栅格 -->
+            <!-- <wlin-row gutter='20'>
+                <wlin-col>1</wlin-col>
+                <wlin-col>2</wlin-col>
+            </wlin-row> -->
+            <!-- <wlin-row gutter='20' align='right'>
+                <wlin-col>1</wlin-col>
+                <wlin-col>2</wlin-col>
+                <wlin-col>3</wlin-col>
+                <wlin-col>4</wlin-col>
+            </wlin-row> -->
+            <!-- 支持响应式，添加phone...属性为屏幕最大宽为576px的场景改变span、offset属性, 响应式的优先级大于span、属性 -->
+            <!-- <wlin-row gutter='20' >
+                <wlin-col 
+                  span='4' 
+                  :phone="{span:12,offset:0}"
+                  :ipad="{span:9,offset:0}"
+                  :pc="{span:20,offset:0}"
+                >1</wlin-col>
+                <wlin-col 
+                  span='20' 
+                  :phone="{span:12,offset:0}"
+                  :ipad="{span:15,offset:0}"
+                  :pc="{span:4,offset:0}"
+                >2</wlin-col>
+            </wlin-row> -->
+
+            <wlin-row gutter='20' >
+                <wlin-col span='4'>1</wlin-col>
+                <wlin-col span='20'>2</wlin-col>
+            </wlin-row>
+        <!-- </div> -->
+
+        <!-- input 组件区域 -->
+        <div style="margin-top: 20px;">
+          <wlin-input value='张三1'></wlin-input>
+          <wlin-input value='张三2' disabled></wlin-input>
+          <wlin-input value='张三3' readonly></wlin-input>
+          <wlin-input value='张三4' error='您输入的名称已存在'></wlin-input>
+        </div>
+
+        <!-- button 组件区域 -->
+        <!-- <div style="margin-top: 20px;"> -->
+            <!-- <wlin-button type="primary" circle>主色</wlin-button>
+            <wlin-button type="primary">主色</wlin-button>
+            <wlin-button type="success">成功</wlin-button>
+            <wlin-button type="info">消息</wlin-button>
+            <wlin-button type="warning">警告</wlin-button>
+            <wlin-button type="danger">危险</wlin-button>
+            <wlin-button :loading='loading1' @click='loading1 = !loading1'>按钮</wlin-button>
+            <wlin-button icon='thumbs-up' icon-position='right' :loading='loading2' @click='loading2 = !loading2'>按钮
+            </wlin-button>
+            <wlin-button icon='setting' :loading='loading3' @click='loading3 = !loading3'>按钮</wlin-button> -->
+
+            <!-- 分页按钮区域 -->
+            <!-- <wlin-button-group>
+                <wlin-button icon='left'>上一页</wlin-button>
+                <wlin-button>更多</wlin-button>
+                <wlin-button icon='right' icon-position='right'>下一页</wlin-button>
+            </wlin-button-group> -->
+        <!-- </div> -->
+
+        <!-- button组件的单元测试 -->
+        <!-- <div id="test"></div> -->
+    </div>
+    <!-- index.html根模版文件只依赖一个js文件 -- app.js， 而app.js用import引入各模块依赖 -->
+    <script src="./src/app.js"></script>
+
+</body>
+
+</html>
