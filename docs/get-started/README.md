@@ -20,7 +20,25 @@ Vue.use(Plugin)
 new Vue({
   el: '#app',
   components: {
-    'wlin-button':Button
+    'wlin-button':Button,
+    'wlin-input': Input,
+    'wlin-popover': Popover,
+    'wlin-pager': Pager,
+    'wlin-collapse': Collapse,
+    'wlin-collapse-item': CollapseItem,
+    'wlin-cascader': Cascader,
+    'wlin-col': Col,
+    'wlin-row': Row,
+    'wlin-layout': Layout,
+    'wlin-header': Header,
+    'wlin-footer': Footer,
+    'wlin-content': Content,
+    'wlin-sider': Sider,
+    'wlin-tabs': Tabs,
+    'wlin-tabs-head': TabsHead,
+    'wlin-tabs-body': TabsBody,
+    'wlin-tabs-item': TabsItem,
+    'wlin-tabs-pane': TabsPane,
   }
 })
 ```
