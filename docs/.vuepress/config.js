@@ -31,6 +31,7 @@ module.exports = {
           '/components/toast',
           '/components/pager',
           '/components/collapse',
+          '/components/cascader',
 
           // '/components/slides',
         ]

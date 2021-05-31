@@ -8,7 +8,7 @@ wlin UI 是一个基于vue的ui组件库。
 
 本 UI 框架是一个「面向源码阅读者」的框架。如果对你有帮助，请不要吝惜你的 star。
 
-如果你对代码有疑问，欢迎[提issue](https://github.com/wlin00/wlinUi/issues)，我会回答倾听您的意见和建议。
+如果你对代码有疑问，欢迎[提issue](https://github.com/wlin00/wlinUiVue/issues)，我会回答倾听您的意见和建议。
 
 本 UI 框架是基于 Vue 2 实现的。
 
