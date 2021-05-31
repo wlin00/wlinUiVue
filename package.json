@@ -1,6 +1,6 @@
 {
   "name": "wlinui",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "vue ui框架",
   "main": "dist/index.js",
   "scripts": {
