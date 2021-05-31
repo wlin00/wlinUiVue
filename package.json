@@ -1,11 +1,11 @@
 {
   "name": "wlinui",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "vue ui框架",
   "main": "dist/index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name wlinui src/index.js",
     "test:unit": "vue-cli-service test:unit",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
