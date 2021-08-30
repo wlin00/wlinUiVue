@@ -1,6 +1,6 @@
 <template>
-  <transition name="slider">
-    <div class="slider-item" v-if="visible" :class="{reverse}">
+  <transition name="carousel">
+    <div class="carousel-item" v-if="visible" :class="{reverse}">
         <slot></slot>
     </div>
   </transition>
@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "wlinSliderItem",
+    name: "wlinCarouselItem",
     props: {
       name: {
         type: String,
@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .slider-item {
+  .carousel-item {
     border-radius: 5px;
     display: inline-flex;
     width: 100%;
@@ -39,10 +39,14 @@
     // border: 1px solid red;
     box-sizing: border-box;
     // position: absolute;
+    >img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   // 只当图片在离开时设置绝对定位， 为保证容器高度不塌陷
-  .slider-leave-active {
+  .carousel-leave-active {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -50,11 +54,11 @@
     left: 0;
   }
 
-  .slider-enter-active, .slider-leave-active {
+  .carousel-enter-active, .carousel-leave-active {
     transition: all .5s
   }
 
-  .slider-enter {
+  .carousel-enter {
     // opacity: 0;
     &:not(.reverse) {
       transform: translateX(100%);
@@ -63,7 +67,7 @@
       transform: translateX(-100%);
     }
   }
-  .slider-leave-to {
+  .carousel-leave-to {
     opacity: 0;
     &:not(.reverse) {
       transform: translateX(-100%) scale(0.9);

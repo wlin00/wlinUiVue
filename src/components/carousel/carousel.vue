@@ -1,29 +1,29 @@
 <template>
-  <div class="wlin-slider"
+  <div class="wlin-carousel"
     @mouseover="handleMouseEnter"
     @mouseleave="handleMouseOut"
   
 
   >
     <div 
-      class="wlin-slider__window"
+      class="wlin-carousel__window"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd" ref="window">
       <slot></slot>
     </div>
-    <div class="wlin-slider__dots">
+    <div class="wlin-carousel__dots">
       <!-- 为获取slot传入的子代数量，在mount中更新data中数值，触发视图渲染，v-for-range遍历出子代个数的dots -->
-      <span class="wlin-slider__dot"  @click.prevent.stop="handleClickPageChange('left')">
-        <!-- <wlin-icon name="left" class="wlin-slider__icon"></wlin-icon> -->
+      <span class="wlin-carousel__dot"  @click.prevent.stop="handleClickPageChange('left')">
+        <!-- <wlin-icon name="left" class="wlin-carousel__icon"></wlin-icon> -->
         <
       </span>
       <span class="overflow-box">
-        <span class="wlin-slider__dot" @click="handleSelectedChange(n-1)" v-for="n in currentChildrenLength" :key="n" :class="{'wlin-slider__dot--active': selectedIndex === n - 1 }">{{n}}</span>
+        <span class="wlin-carousel__dot" @click="handleSelectedChange(n-1)" v-for="n in currentChildrenLength" :key="n" :class="{'wlin-carousel__dot--active': selectedIndex === n - 1 }">{{n}}</span>
       </span>
-      <span class="wlin-slider__dot"  @click.prevent.stop="handleClickPageChange('right')">
+      <span class="wlin-carousel__dot"  @click.prevent.stop="handleClickPageChange('right')">
         >
-        <!-- <wlin-icon name="right" class="wlin-slider__icon"></wlin-icon> -->
+        <!-- <wlin-icon name="right" class="wlin-carousel__icon"></wlin-icon> -->
       </span>
     </div>
 
@@ -33,7 +33,7 @@
 <script>
   import Icon from "../icon/icon";
   export default {
-    name: "wlinSlider",
+    name: "wlinCarousel",
     components: {
       "wlin-icon": Icon,
     },
@@ -183,7 +183,7 @@
 </script>
 
 <style lang="scss" scoped>
-.wlin-slider {
+.wlin-carousel {
   display: flex;
   flex-direction: column;
   position: relative;

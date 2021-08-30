@@ -3,46 +3,40 @@
     <!-- <div><wlin-button type="primary">test</wlin-button></div> -->
     <div>
       <!-- <wlin-cascader @change="handleCascaderChange" v-model="selected" height="200px" :source="source"></wlin-cascader> -->
-      <wlin-slider class="slider-class" v-model="selected" :autoPlay="true" :reversePlay="false">
-        <wlin-slider-item name="1" class="box">
-          <img src="@/assets/img/empty.png" alt="">
-        </wlin-slider-item>
+      <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="false" :reversePlay="false">
+        <wlin-carousel-item name="1" class="box">
+          <img src="@/assets/img/l_1.png" alt="">
+        </wlin-carousel-item>
 
-        <wlin-slider-item name="2" class="box">
-          <img src="@/assets/img/empty.png" alt="">
-        </wlin-slider-item>
+        <wlin-carousel-item name="2" class="box">
+          <img src="@/assets/img/l_2.png" alt="">
+        </wlin-carousel-item>
 
-        <wlin-slider-item name="3" class="box">
-          <img src="@/assets/img/empty.png" alt="">
-        </wlin-slider-item>
+        <wlin-carousel-item name="3" class="box">
+          <img src="@/assets/img/l_3.png" alt="">
+        </wlin-carousel-item>
 
-        <!-- <wlin-slider-item name="3" class="box">
+        <!-- <wlin-carousel-item name="3" class="box">
           <img src="@/assets/img/empty.png" alt="">
-        </wlin-slider-item> -->
-      </wlin-slider>
+        </wlin-carousel-item> -->
+      </wlin-carousel>
     </div>
     <!-- <div>123</div> -->
   </div>
 </template>
 
 <script>
-// import Button from "./components/button/button";
-// import Cascader from "./components/cascader/cascader";
-import Slider from './components/slider/slider.vue'
-import SliderItem from './components/slider/slider-item.vue'
-
+import Carousel from './components/carousel/carousel'
+import CarouselItem from './components/carousel/carousel-item'
 
 export default {
   components: {
     // "wlin-button": Button,
     // "wlin-cascader": Cascader
-    "wlin-slider": Slider,
-    'wlin-slider-item': SliderItem
+    "wlin-carousel": Carousel,
+    'wlin-carousel-item': CarouselItem
   },
   methods: {
-    // handleCascaderChange(e) {
-    //   console.log('cg', e)
-    // }
   },
   mounted () {
   },
@@ -121,11 +115,15 @@ body {
   justify-content: center;
   font-size: 30px;
   background: #ddd;
+  >img {
+    width: 100%;
+    height: 100%;
+  }
 
   // height: 100px;
   // border: 1px solid red;
 }
-.slider-class {
+.carousel-class {
   width: 100%;
   height: 350px;
 

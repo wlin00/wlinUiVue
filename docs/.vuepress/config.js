@@ -32,8 +32,7 @@ module.exports = {
           '/components/pager',
           '/components/collapse',
           '/components/cascader',
-
-          // '/components/slides',
+          '/components/carousel',
         ]
       },
 
