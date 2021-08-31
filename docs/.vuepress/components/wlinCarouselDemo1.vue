@@ -4,7 +4,13 @@
     <p>
       <strong>预览</strong>
     </p>
-      <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="true" :reversePlay="false">
+      <wlin-carousel 
+        class="carousel-class" 
+        v-model="selected" 
+        :autoPlay="true" 
+        :reversePlay="false" 
+        :delay="3000"
+      >
         <wlin-carousel-item name="food" class="box">
           <img src="../../../src/assets/img/l_1.png" alt="">
         </wlin-carousel-item>
@@ -43,7 +49,13 @@ import CarouselItem from '../../../src/components/carousel/carousel-item'
       return {
         selected: 'food',
         content: `
-  <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="true" :reversePlay="false">
+  <wlin-carousel 
+       class="carousel-class" 
+       v-model="selected" 
+       :autoPlay="true" 
+       :reversePlay="false" 
+       :delay="3000"
+     >
               <wlin-carousel-item name="food" class="box">
                 <img src="@/assets/img/empty.png" alt="">
               </wlin-carousel-item>

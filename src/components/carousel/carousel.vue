@@ -54,6 +54,10 @@
         type: Boolean,
         default: true
       },
+      delay: {
+        type: Number,
+        default: 3000
+      },
       reversePlay: {
         type: Boolean,
         default: false, // 是否逆序播放轮播图
@@ -160,9 +164,9 @@
           if (newIndex === -1) { newIndex = this.names.length - 1 }
           console.log('auto - index', index, this.directionFlag)
           this.handleSelectedChange(newIndex)
-          this.timer = setTimeout(run, 3000) // setTimeOut模拟setInterval
+          this.timer = setTimeout(run, this.delay) // setTimeOut模拟setInterval
         }
-        this.timer = setTimeout(run, 3000)
+        this.timer = setTimeout(run, this.delay)
       },
       getCurrentName() {
         return this.value || this.$children[0].name // 获取当前图片主键name，若当前未传入绑定值 或绑定value为空，则默认先展示第一张
