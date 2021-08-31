@@ -3,7 +3,7 @@
     <!-- <div><wlin-button type="primary">test</wlin-button></div> -->
     <div>
       <!-- <wlin-cascader @change="handleCascaderChange" v-model="selected" height="200px" :source="source"></wlin-cascader> -->
-      <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="false" :reversePlay="false">
+      <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="true" :reversePlay="true">
         <wlin-carousel-item name="1" class="box">
           <img src="@/assets/img/l_1.png" alt="">
         </wlin-carousel-item>

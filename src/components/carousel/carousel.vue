@@ -2,8 +2,6 @@
   <div class="wlin-carousel"
     @mouseover="handleMouseEnter"
     @mouseleave="handleMouseOut"
-  
-
   >
     <div 
       class="wlin-carousel__window"
@@ -66,9 +64,9 @@
         return this.$children.map((vm) => vm.name)
       }
     },
-    mounted () {
+    async mounted () {
+      await this.autoPlay && this.playAutomatically()
       this.updateChildren()
-      this.autoPlay && this.playAutomatically()
       this.syncChildrenLength()
       this.syncSelected()
     },
@@ -153,12 +151,14 @@
       playAutomatically() { // 自动播放轮播图
         if (this.timer) { return }
         // 循环播放
-        let run = () => {
+        let run = async () => {
           let index = this.names.indexOf(this.getCurrentName())
           let newIndex = this.reversePlay ? index - 1 : index + 1
+          this.directionFlag = this.reversePlay ? 'left' : 'right'
+          await this.$nextTick()
           if (newIndex === this.names.length) { newIndex = 0 }
           if (newIndex === -1) { newIndex = this.names.length - 1 }
-          console.log('auto - index', index)
+          console.log('auto - index', index, this.directionFlag)
           this.handleSelectedChange(newIndex)
           this.timer = setTimeout(run, 3000) // setTimeOut模拟setInterval
         }
@@ -173,6 +173,7 @@
         const currentSelected = this.getCurrentName()
         this.$children.forEach((vm) => {
           vm.reverse = this.directionFlag === 'right' ? false : true
+          console.log('vm', vm.reverse)
           this.$nextTick(() => {// 解决reverse没有更新的问题
             vm.selected = currentSelected // 控制当前选中图片显示
           })
