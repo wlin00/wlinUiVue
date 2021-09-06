@@ -2,8 +2,13 @@
   <div>
     <wlin-nav v-model="selected" :multiple="true">
       <wlin-nav-item name="home">首页</wlin-nav-item>
-      <wlin-nav-item name="about">关于</wlin-nav-item>
-      <wlin-nav-item name="mine">招聘</wlin-nav-item>
+      <wlin-nav-sub name="about">
+        <template slot="title">关于</template>
+        <wlin-nav-item name="about1">关于1</wlin-nav-item>
+        <wlin-nav-item name="about2">关于2</wlin-nav-item>
+        <wlin-nav-item name="about3">关于3</wlin-nav-item>
+      </wlin-nav-sub>
+      <wlin-nav-item name="mine">我的</wlin-nav-item>
     </wlin-nav>
   </div>
 </template>

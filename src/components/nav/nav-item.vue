@@ -7,6 +7,7 @@
 <script>
   export default {
     name: 'WlinNavItem',
+    inject: ['root'],
     props: {
       name: {
         type: String,
@@ -21,8 +22,10 @@
     methods: {
       handleClick() {
         this.$emit('input', this.name)
-        
       }
+    },
+    created () {
+      this.root.addItem(this)
     },
   }
 </script>
