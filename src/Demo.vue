@@ -1,40 +1,23 @@
 <template>
   <div>
-    <!-- <div><wlin-button type="primary">test</wlin-button></div> -->
-    <div>
-      <!-- <wlin-cascader @change="handleCascaderChange" v-model="selected" height="200px" :source="source"></wlin-cascader> -->
-      <wlin-carousel class="carousel-class" v-model="selected" :autoPlay="true" :reversePlay="false" :delay="3000">
-        <wlin-carousel-item name="1" class="box">
-          <img src="@/assets/img/l_1.png" alt="">
-        </wlin-carousel-item>
-
-        <wlin-carousel-item name="2" class="box">
-          <img src="@/assets/img/l_2.png" alt="">
-        </wlin-carousel-item>
-
-        <wlin-carousel-item name="3" class="box">
-          <img src="@/assets/img/l_3.png" alt="">
-        </wlin-carousel-item>
-
-        <!-- <wlin-carousel-item name="3" class="box">
-          <img src="@/assets/img/empty.png" alt="">
-        </wlin-carousel-item> -->
-      </wlin-carousel>
-    </div>
-    <!-- <div>123</div> -->
+    <wlin-nav v-model="selected" :multiple="true">
+      <wlin-nav-item name="home">首页</wlin-nav-item>
+      <wlin-nav-item name="about">关于</wlin-nav-item>
+      <wlin-nav-item name="mine">招聘</wlin-nav-item>
+    </wlin-nav>
   </div>
 </template>
 
 <script>
-import Carousel from './components/carousel/carousel'
-import CarouselItem from './components/carousel/carousel-item'
+import Nav from './components/nav/nav.vue'
+import NavItem from './components/nav/nav-item.vue'
+import NavSub from './components/nav/nav-sub.vue'
 
 export default {
   components: {
-    // "wlin-button": Button,
-    // "wlin-cascader": Cascader
-    "wlin-carousel": Carousel,
-    'wlin-carousel-item': CarouselItem
+    "wlin-nav": Nav,
+    "wlin-nav-item": NavItem,
+    "wlin-nav-sub": NavSub,
   },
   methods: {
   },
@@ -42,58 +25,59 @@ export default {
   },
   data() {
     return {
-      selected: '1',
-      source: [{
-        name: '浙江',
-        id: '1',
-        children: [
-          {
-            name: '杭州',
-            id: '2',
-            children: [
-              { name: '上城', id: '3' },
-              { name: '下城', id: '4' },
-              { name: '江干', id: '5' },
-            ]
-          },
-          {
-            name: '嘉兴',
-            id: '6',
-            children: [
-              { name: '南湖', id: '7', children: [{ name: '南湖A', id:'21' }] },
-              { name: '秀洲', id: '8' },
-              { name: '嘉善', id: '9' },
-            ]
-          }
-        ]
-      }, {
-        name: '福建',
-        id: '10',
-        children: [
-          {
-            name: '福州',
-            id: '11',
-            children: [
-              { name: '鼓楼', id: '12' },
-              { name: '台江', id: '13' },
-              { name: '仓山', id: '14' },
-            ]
-          },
-        ]
-      }, {
-        name: '安徽',
-        id: '15',
-        children: [
-          {
-            name: '合肥',
-            id: '16',
-            children: [
-              { name: '瑶海', id: '17' },
-              { name: '庐阳', id: '18' },
-            ]
-          },
-        ]
-      }],
+      // source: [{
+      //   name: '浙江',
+      //   id: '1',
+      //   children: [
+      //     {
+      //       name: '杭州',
+      //       id: '2',
+      //       children: [
+      //         { name: '上城', id: '3' },
+      //         { name: '下城', id: '4' },
+      //         { name: '江干', id: '5' },
+      //       ]
+      //     },
+      //     {
+      //       name: '嘉兴',
+      //       id: '6',
+      //       children: [
+      //         { name: '南湖', id: '7', children: [{ name: '南湖A', id:'21' }] },
+      //         { name: '秀洲', id: '8' },
+      //         { name: '嘉善', id: '9' },
+      //       ]
+      //     }
+      //   ]
+      // }, {
+      //   name: '福建',
+      //   id: '10',
+      //   children: [
+      //     {
+      //       name: '福州',
+      //       id: '11',
+      //       children: [
+      //         { name: '鼓楼', id: '12' },
+      //         { name: '台江', id: '13' },
+      //         { name: '仓山', id: '14' },
+      //       ]
+      //     },
+      //   ]
+      // }, {
+      //   name: '安徽',
+      //   id: '15',
+      //   children: [
+      //     {
+      //       name: '合肥',
+      //       id: '16',
+      //       children: [
+      //         { name: '瑶海', id: '17' },
+      //         { name: '庐阳', id: '18' },
+      //       ]
+      //     },
+      //   ]
+      // }],
+      selected: ['home'],
+  
     }
   }
 };
