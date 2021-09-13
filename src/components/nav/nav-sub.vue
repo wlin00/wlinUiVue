@@ -89,7 +89,7 @@ import Icon from "../icon/icon.vue";
         // el.addEventListener('transitionend', () => {
         setTimeout(() => {
           done()
-        }, 300)
+        }, 200)
       },
       leave(el, done) {
         let { height } = el.getBoundingClientRect() // 获取auto高度
@@ -99,7 +99,7 @@ import Icon from "../icon/icon.vue";
         // 只要调用done会立刻display：none， 导致动画丢失， 所以done应该延时调用
         setTimeout(() => {
           done()
-        }, 300)
+        }, 200)
       },
       afterLeave(el) {
         // 动画淡出结束后， 恢复高度
