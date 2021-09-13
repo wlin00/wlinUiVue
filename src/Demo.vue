@@ -1,16 +1,60 @@
 <template>
   <div>
-    <wlin-nav v-model="selected" :multiple="true">
+    <wlin-nav 
+      v-model="selected"
+      :multiple="false"
+      @change="handleChange"
+      :vertical="false"
+      style="margin-bottom: 300px;"
+    >
       <wlin-nav-item name="home">首页</wlin-nav-item>
       <wlin-nav-sub name="about">
         <template slot="title">关于</template>
         <wlin-nav-item name="about1">关于1</wlin-nav-item>
         <wlin-nav-item name="about2">关于2</wlin-nav-item>
-        <wlin-nav-item name="about3">关于3</wlin-nav-item>
+        <wlin-nav-sub name="about3">
+          <template slot="title">关于3</template>
+          <wlin-nav-item name="about31">关于3-1</wlin-nav-item>
+          <wlin-nav-item name="about32">关于3-2</wlin-nav-item>
+          <wlin-nav-sub name="about33">
+            <template slot="title">关于3-3</template>
+            <wlin-nav-item name="about331">关于3-3-1</wlin-nav-item>
+            <wlin-nav-item name="about332">关于3-3-2</wlin-nav-item>
+          </wlin-nav-sub>
+        </wlin-nav-sub>
+      </wlin-nav-sub>
+      <wlin-nav-item name="mine">我的</wlin-nav-item>
+    </wlin-nav>
+
+
+
+    <wlin-nav 
+      v-model="selected"
+      :multiple="false"
+      @change="handleChange"
+      :vertical="true"
+    >
+      <wlin-nav-item name="home">首页</wlin-nav-item>
+      <wlin-nav-sub name="about">
+        <template slot="title">关于</template>
+        <wlin-nav-item name="about1">关于1</wlin-nav-item>
+        <wlin-nav-item name="about2">关于2</wlin-nav-item>
+        <wlin-nav-sub name="about3">
+          <template slot="title">关于3</template>
+          <wlin-nav-item name="about31">关于3-1</wlin-nav-item>
+          <wlin-nav-item name="about32">关于3-2</wlin-nav-item>
+          <wlin-nav-sub name="about33">
+            <template slot="title">关于3-3</template>
+            <wlin-nav-item name="about331">关于3-3-1</wlin-nav-item>
+            <wlin-nav-item name="about332">关于3-3-2</wlin-nav-item>
+          </wlin-nav-sub>
+        </wlin-nav-sub>
       </wlin-nav-sub>
       <wlin-nav-item name="mine">我的</wlin-nav-item>
     </wlin-nav>
   </div>
+
+  
 </template>
 
 <script>
@@ -25,6 +69,9 @@ export default {
     "wlin-nav-sub": NavSub,
   },
   methods: {
+    handleChange(value, path) {
+      console.log('cg', value, 'path', path)
+    }
   },
   mounted () {
   },
@@ -81,7 +128,7 @@ export default {
       //     },
       //   ]
       // }],
-      selected: ['home'],
+      selected: ['about331'],
   
     }
   }

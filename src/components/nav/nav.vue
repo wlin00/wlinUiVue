@@ -1,5 +1,5 @@
 <template>
-  <div class="wlin-nav">
+  <div class="wlin-nav" :class="{'wlin-nav--vertical' :vertical}">
     <slot/>
   </div>
 </template>
@@ -10,12 +10,14 @@
     provide() {
       // 向后代nav-item组件提供依赖注入，暴露钩子函数，允许其修改nav组件
       return {
-        root: this
+        root: this,
+        vertical: this.vertical
       }
     },
     data() {
       return {
-        items: []
+        items: [],
+        namePath: [],
       }
     },
     props: {
@@ -24,8 +26,11 @@
         default: () => []
       },
       multiple: Boolean,
+      vertical: Boolean,
     },
     methods: {
+      // closePanel() {
+      // },
       addItem(vm) {
         this.items.push(vm)
       },
@@ -34,11 +39,13 @@
           vm.active = this.value.indexOf(vm.name) >= 0 ? true : false
         })
       },
+      emitChange() {
+        this.$emit('change', this.value, this.namePath)
+      },
       addLisener() {
         // 给每个子代nav-itme，添加点击监听
         this.items.forEach((vm) => {
           vm.$on('input', (name) => {
-            console.log('vvvv', this.value, 'name', name)
             if (this.value.indexOf(name) < 0) {
               if (this.multiple) {
                 const copy = JSON.parse(JSON.stringify(this.value))
@@ -56,9 +63,10 @@
                 this.$emit('input', copy)
               }
             }
+            // console.log('vvvv', this.value, 'name', name)
           })
         })
-      }
+      },
     },
     mounted () {
       // console.log('get - items', this.items)
@@ -81,7 +89,14 @@
 .wlin-nav {
   display: flex;
   box-sizing: border-box;
-  border: 1px solid red;
+  border-bottom: 1px solid rgb(215, 221, 226);
+  position: relative;
+  user-select: none;
+  cursor: default;
+  &--vertical {
+    flex-direction: column;
+    border: 1px solid #d7dde2;
+  }
 }
 
 </style>
