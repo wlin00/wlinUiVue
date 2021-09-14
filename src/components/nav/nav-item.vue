@@ -1,5 +1,5 @@
 <template>
-  <div @click="handleClick" class="wlin-nav-item" :class="{'wlin-nav-item--active': active}"> 
+  <div @click="handleClick" class="wlin-nav-item" :class="{'wlin-nav-item--active': active, 'wlin-nav-item--vertical': vertical}"> 
     <slot />
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
   export default {
     name: 'WlinNavItem',
-    inject: ['root'],
+    inject: ['root', 'vertical'],
     props: {
       name: {
         type: String,
@@ -51,13 +51,20 @@
   font-size: 16px;
   // display: inline-block;
   // vertical-align: middle;
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   &:not(.wlin-nav-item--active):hover {
     opacity: .7;
   }
   &--active {
     // background: red;
     // color: #fff;
-    color: #555;
+    color: #3399ff;
     &::after {
       content: '';
       width: 100%;
@@ -67,12 +74,22 @@
       border-bottom: 2px solid rgb(55, 55, 240);
     }
   }
+  &--vertical {
+    &::after{
+      content: '';
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-bottom: 2px solid transparent;
+    }
+  }
 }
 
 .wlin-nav-sub .wlin-nav-item {
   &--active {
-    background: rgb(243, 243, 243);
-    color: #555;
+    // background: rgb(243, 243, 243);
+    color: #3399ff;
     &::after {
      display: none;
     }

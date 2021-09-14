@@ -10,7 +10,9 @@
       @change="handleChange"
       :vertical="false"
     >
-      <wlin-nav-item name="home">首页</wlin-nav-item>
+      <wlin-nav-item name="home">
+        <a href="https://baidu.com" target="_blank">首页</a>
+      </wlin-nav-item>
       <wlin-nav-sub name="about">
         <template slot="title">关于</template>
         <wlin-nav-item name="about1">关于1</wlin-nav-item>

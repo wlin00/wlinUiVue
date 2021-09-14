@@ -3,7 +3,7 @@
     <span class="wlin-nav-sub__title" @click="switchOpenFlag">
       <slot name="title" />
       <div class="wlin-nav-sub__flexWrap">
-        <wlin-icon name='right' class="wlin-nav-sub__icon" :class="{'wlin-nav-sub__icon--rotate': open }"></wlin-icon>
+        <wlin-icon name='right' class="wlin-nav-sub__icon" :class="{'wlin-nav-sub__icon--rotate': open, 'vertical': vertical }"></wlin-icon>
       </div>
     </span>
     <template v-if="vertical">
@@ -173,12 +173,15 @@ import Icon from "../icon/icon.vue";
     top: 1px;
     &--rotate {
       transform: rotate(180deg);
+      &.vertical {
+        transform: rotate(90deg); // vertical时，icon激活时朝下
+      }
     }
   }
   &--active {
     // background: red;
     // color: #fff;
-    color: #555;
+    color: #3399ff;
     &::after {
       content: '';
       width: 100%;
@@ -186,6 +189,16 @@ import Icon from "../icon/icon.vue";
       left: 0;
       bottom: 0;
       border-bottom: 2px solid rgb(55, 55, 240);
+    }
+  }
+  &--vertical {
+    &::after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-bottom: 2px solid transparent;
     }
   }
   >span {
@@ -232,8 +245,8 @@ import Icon from "../icon/icon.vue";
   margin-left: 5px;
   .wlin-nav-item {
     &--active {
-      background: rgb(243, 243, 243);
-      color: #555;
+      // background: #fff;
+      color: #3399ff;
       &::after {
       display: none;
       }
