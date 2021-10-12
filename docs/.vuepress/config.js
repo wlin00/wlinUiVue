@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         title: '组件',
-        collapsable: true,
+        collapsable: false,
         children: [
           '/components/button',
           '/components/input',
