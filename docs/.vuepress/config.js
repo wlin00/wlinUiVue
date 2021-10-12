@@ -34,6 +34,7 @@ module.exports = {
           '/components/cascader',
           '/components/carousel',
           '/components/nav',
+          '/components/sticky',
         ]
       },
 
