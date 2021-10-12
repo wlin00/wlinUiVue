@@ -6,7 +6,7 @@
     <p>段落nnnn</p>
     <div style="display:flex;justify-content:center;">
       <div style="width:600px">
-        <wlin-sticky distance="100">
+        <wlin-sticky :distance="100">
           <div style="border:1px solid red;">sticky-inner</div>
         </wlin-sticky>
       </div>
