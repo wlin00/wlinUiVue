@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import Carousel from '../../../src/components/carousel/carousel'
+import Carousel from '../../../src/components/carousel/carousel.vue'
 import CarouselItem from '../../../src/components/carousel/carousel-item'
 
   export default {
