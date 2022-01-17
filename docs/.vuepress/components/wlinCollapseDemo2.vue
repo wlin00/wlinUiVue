@@ -15,13 +15,20 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code" style="margin-top:16px;">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeJs"></pre>
+    </div>
   </div>
 </template>
 <script>
   import WlinCollapse from '../../../src/components/collapse/collapse'
   import wlinCollapseItem from '../../../src/components/collapse/collapse-item'
-
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   export default {
     components: {WlinCollapse, wlinCollapseItem},
@@ -30,19 +37,30 @@
         console.log('collapse-change', val)
       }
     },
+    computed: {
+      computeJs() {
+        return Prism.highlight(this.js, Prism.languages.css, 'css') 
+      },
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      },
+    },
     data () {
       return {
         value: ['标题1'],
+        js: `data () {
+    return {
+      data: {
+        value: ['标题1']
+      }
+    }
+  },
+  methods: {
+    handleCollapseChange(val) {
+      console.log('collapse-change', val)
+    }
+  }`,
         content: `
-          data:{
-            value: ['标题1']
-          },
-          methods: {
-            handleCollapseChange(val) {
-              console.log('collapse-change', val)
-            }
-          },
-
           <div style="width:100%;box-sizing:border-box;padding:10px;">
             <wlin-collapse accordion style="margin-bottom: 20px;" v-model="value" @change="handleCollapseChange">
               <wlin-collapse-item title='标题1'>内容1</wlin-collapse-item>
@@ -55,3 +73,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

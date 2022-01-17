@@ -12,29 +12,28 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
 
-    <!-- button-group -->
-     <!-- <h2>其他</h2>
-    <p>
-      <strong>预览</strong>
-    </p> -->
-    <!-- <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{contentGroup}}</code></pre> -->
   </div>
 </template>
 <script>
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
   import Input from '../../../src/components/input/input'
-  // import ButtonGroup from '../../../src/components/button/button-group'
-
+  const Prism = window.Prism
 
   export default {
     name: 'wlinInputDemo1',
     components: {
       'wlin-input': Input,
       // 'wlin-button-group': ButtonGroup,
+    },
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      },
     },
     data () {
       return {
@@ -49,3 +48,10 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>
+

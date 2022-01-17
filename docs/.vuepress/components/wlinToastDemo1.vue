@@ -14,7 +14,9 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
   </div>
 </template>
 <style>
@@ -32,20 +34,22 @@
   import plugin from '../../../src/components/toast/toast-plugin'
   import WlinButton from '../../../src/components/button/button'
   import Vue from 'vue'
-
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
+  
   Vue.use(plugin)
 
   export default {
     components: {WlinButton},
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      }
+    },
     data () {
       return {
         content: `
-          <style>
-            .wlin-toast {
-              z-index: 30;
-            }
-          </style>
-
           <wlin-button @click="$toast('点击弹出提示', {position:'top'})">上方弹出</wlin-button>
           <wlin-button @click="$toast('点击弹出提示', {position:'middle'})">中间弹出</wlin-button>
           <wlin-button @click="$toast('点击弹出提示', {position:'bottom'})">下方弹出</wlin-button>
@@ -54,3 +58,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

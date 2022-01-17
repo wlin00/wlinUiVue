@@ -42,3 +42,7 @@ new Vue({
   }
 })
 ```
+
+<ClientOnly>
+  <wlin-install-demo1></wlin-install-demo1>
+</ClientOnly>

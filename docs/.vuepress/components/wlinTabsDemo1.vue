@@ -23,7 +23,12 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeJs"></pre>
+    </div>
+    <div class="demo-code" style="margin-top:16px;">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
   </div>
 </template>
 <script>
@@ -32,17 +37,29 @@
   import WlinTabsHead from '../../../src/components/tabs/tabs-head'
   import WlinTabsItem from '../../../src/components/tabs/tabs-item'
   import WlinTabsPane from '../../../src/components/tabs/tabs-pane'
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   export default {
     components: {WlinTabs, WlinTabsBody, WlinTabsHead, WlinTabsItem, WlinTabsPane},
+    computed: {
+      computeJs() {
+        return Prism.highlight(this.js, Prism.languages.javascript, 'javascript') 
+      },
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      },
+    },
     data () {
       return {
         selected: '1',
+        js: `data () {
+    return {
+      selected: '1'
+    }
+  }`,
         content: `
-          data:{
-            selected: '1'
-          }
-
           <wlin-tabs v-model="selected">
             <wlin-tabs-head>
               <wlin-tabs-item name="1">1</wlin-tabs-item>
@@ -60,3 +77,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

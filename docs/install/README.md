@@ -14,3 +14,6 @@ npm install wlinUi
 ```bash
 yarn add wlinUi
 ```
+<ClientOnly>
+  <wlin-install-demo1></wlin-install-demo1>
+</ClientOnly>

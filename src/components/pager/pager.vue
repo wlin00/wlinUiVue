@@ -289,6 +289,7 @@ export default {
     font-size: 12px;
   }
   &-item {
+    min-width: 50px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     padding: 0 12px;
@@ -297,7 +298,6 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    min-width: 36px;
     height: 32px;
     margin-left: 8px;
     box-sizing: border-box;
@@ -403,6 +403,7 @@ export default {
     }
   }
   &-nav {
+    min-width: 50px;
     &.next {
       margin-left: 8px;
     }
@@ -411,7 +412,6 @@ export default {
     justify-content: center;
     align-items: center;
     height: 32px;
-    min-width: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -13,9 +13,8 @@ wlin UI 是一个基于vue的ui组件库。
 
 ## 有哪些轮子
 
-* 已完成轮子：按钮、输入框、网格、布局、Toast、Tabs、Popover、手风琴、pager
-* 待完成轮子：级联选择、无缝轮播、响应式导航条、表单验证、Table、图片上传、Sticky、Tree、Suggestion、Datepicker
-* 其他：路由、状态管理
+* 已完成轮子：按钮、输入框、网格、布局、Toast、Tabs、Popover、手风琴、分页、级联选择、无缝轮播、导航条、Sticky
+* 待完成：表单验证、Table、图片上传、滚动组件、Datepicker（代码未完成）
 
 
 ## 项目特点

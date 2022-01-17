@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 16px;">
+  <div style="padding-top: 16px;" class="demo">
     <h2>简单用法</h2>
     <p>
       <strong>预览</strong>
@@ -12,7 +12,10 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
+    <!-- <pre><code>{{computeContent}}</code></pre> -->
 
     <!-- 多种类型 -->
     <h2>多种类型</h2>
@@ -28,7 +31,9 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{contentTypes}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContentCombination"></pre>
+    </div>
 
     <!-- 更多选项 -->
     <h2>更多选项</h2>
@@ -45,7 +50,9 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{contentCombination}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContentCombination"></pre>
+    </div>
 
     <!-- button-group -->
     <h2>按钮组合</h2>
@@ -57,23 +64,39 @@
       <wlin-button>更多</wlin-button>
       <wlin-button icon='right' icon-position='right'>下一页</wlin-button>
     </wlin-button-group>
-
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{contentGroup}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContentGroup"></pre>
+    </div>
   </div>
 </template>
 <script>
   import Button from '../../../src/components/button/button'
   import ButtonGroup from '../../../src/components/button/button-group'
-
-
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
   export default {
     name: 'wlinButtonDemo1',
     components: {
       'wlin-button': Button,
       'wlin-button-group': ButtonGroup,
+    },
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      },
+      computeContentTypes() {
+        return Prism.highlight(this.contentTypes, Prism.languages.html, 'html') 
+      },
+      computeContentCombination() {
+        return Prism.highlight(this.contentCombination, Prism.languages.html, 'html') 
+      },
+      computeContentGroup() {
+        return Prism.highlight(this.contentGroup, Prism.languages.html, 'html') 
+      },
     },
     data () {
       return {
@@ -116,3 +139,25 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>
+
+<style lang="scss">
+.language-bash  {
+  background-color: #f5f2f0 !important;
+  >code {
+    color: #476582 !important;
+  }
+}
+.language-javascript {
+  background-color: #f5f2f0 !important;
+  >code {
+    color: #476582 !important;
+  }
+}
+
+</style>

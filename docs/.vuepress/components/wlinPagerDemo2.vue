@@ -19,14 +19,24 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
   </div>
 </template>
 <script>
   import WlinPager from '../../../src/components/pager/pager'
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   export default {
     components: {WlinPager},
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      }
+    },
     methods: {
       onPageSizeChange(e) {
         //pageSize改变的回调
@@ -47,12 +57,6 @@
         pageSize: 150,
         simple: false,
         content: `
-          data:{
-            pageNo: 1,
-            pageSize: 150,
-            simple: false,
-          }
-
           <div style="width:100%;box-sizing:border-box;padding:10px;">
             <wlin-pager 
               v-model="pageNo" 
@@ -69,3 +73,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

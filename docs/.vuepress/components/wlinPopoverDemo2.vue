@@ -39,7 +39,9 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
   </div>
 </template>
 <style>
@@ -49,39 +51,46 @@
 <script>
   import WlinButton from '../../../src/components/button/button'
   import WlinPopover from '../../../src/components/popover/popover'
-
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   export default {
     components: {WlinButton, WlinPopover},
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      }
+    },
     data () {
       return {
         content: `
-        <div class="wrap" style="box-sizing:border-box;padding:10px;">
-            <wlin-popover trigger="hover">
-              <template>
-                <div style="min-height: 30px;">popover-content</div>
-              </template>
-              <wlin-button slot="reference">点击</wlin-button>
-            </wlin-popover>
-            <wlin-popover position="bottom" trigger="hover">
-              <template>
-                <div style="min-height: 30px;">popover-content</div>
-              </template>
-              <wlin-button slot="reference">点击</wlin-button>
-            </wlin-popover>
-            <wlin-popover position="left" trigger="hover">
-              <template>
-                <div style="min-height: 30px;">popover-content</div>
-              </template>
-              <wlin-button slot="reference">点击</wlin-button>
-            </wlin-popover>
-            <wlin-popover position="right" trigger="hover">
-              <template>
-                <div style="min-height: 30px;">popover-content</div>
-              </template>
-              <wlin-button slot="reference">点击</wlin-button>
-            </wlin-popover>
-          </div>
+  <div class="wrap" style="box-sizing:border-box;padding:10px;">
+    <wlin-popover trigger="hover">
+      <template>
+        <div style="min-height: 30px;">popover-content</div>
+      </template>
+      <wlin-button slot="reference">点击</wlin-button>
+    </wlin-popover>
+    <wlin-popover position="bottom" trigger="hover">
+      <template>
+        <div style="min-height: 30px;">popover-content</div>
+      </template>
+      <wlin-button slot="reference">点击</wlin-button>
+    </wlin-popover>
+    <wlin-popover position="left" trigger="hover">
+      <template>
+        <div style="min-height: 30px;">popover-content</div>
+      </template>
+      <wlin-button slot="reference">点击</wlin-button>
+    </wlin-popover>
+    <wlin-popover position="right" trigger="hover">
+      <template>
+        <div style="min-height: 30px;">popover-content</div>
+      </template>
+      <wlin-button slot="reference">点击</wlin-button>
+    </wlin-popover>
+  </div>
       `.replace(/^ {8}/gm, '').trim()
       }
     },
@@ -89,3 +98,9 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

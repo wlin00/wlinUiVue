@@ -51,7 +51,9 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
   </div>
 </template>
 <style>
@@ -64,10 +66,17 @@
 <script>
   import WlinButton from '../../../src/components/button/button'
   import WlinSticky from '../../../src/components/sticky/sticky'
-
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   export default {
     components: {WlinButton, WlinSticky},
+    computed: {
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      },
+    },
     data () {
       return {
         content: `
@@ -123,3 +132,9 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>

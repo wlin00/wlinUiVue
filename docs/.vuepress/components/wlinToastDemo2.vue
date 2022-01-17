@@ -14,7 +14,12 @@
     <p>
       <strong>代码</strong>
     </p>
-    <pre><code>{{content}}</code></pre>
+    <div class="demo-code">
+      <pre class="language-html wlin-pre" v-html="computeContent"></pre>
+    </div>
+    <div class="demo-code" style="margin-top:16px;">
+      <pre class="language-html wlin-pre" v-html="computeJs"></pre>
+    </div>
   </div>
 </template>
 <style>
@@ -32,43 +37,45 @@
   import plugin from '../../../src/components/toast/toast-plugin'
   import WlinButton from '../../../src/components/button/button'
   import Vue from 'vue'
+  import 'prismjs';
+  import 'prismjs/themes/prism.css'
+  const Prism = window.Prism
 
   Vue.use(plugin)
 
   export default {
     components: {WlinButton},
+    computed: {
+      computeJs() {
+        return Prism.highlight(this.js, Prism.languages.javascript, 'javascript') 
+      },
+      computeContent() {
+        return Prism.highlight(this.content, Prism.languages.html, 'html') 
+      }
+    },
     data () {
       return {
-        content: `
-          <style>
-            .wlin-toast {
-              z-index: 30;
-            }
-          </style>
-
-          <div>
-            <wlin-button @click="onClickButton">上方弹出</wlin-button>
-            <wlin-button :showCloseBtn="false" @click="onClickButton">弹出</wlin-button>
-          </div>
-          
-          methods: {
-              onClickButton1 () {
-                this.$toast('可关闭的弹出框', {
-                  closeButton: {
-                    text: '知道了',
-                    callback: () => {
-                      console.log('他说知道了')
-                    }
-                  }
-                })
-              },
-              onClickButton2 () {
-                this.$toast('不可关闭的弹出框', {
-                  showCloseBtn: false
-                })
-              },
-            },
-      `.replace(/^ {8}/gm, '').trim()
+        js: `data () {
+  onClickButton1 () {
+    this.$toast('可关闭的弹出框', {
+      closeButton: {
+        text: '知道了',
+        callback: () => {
+          console.log('他说知道了')
+        }
+      }
+    })
+  }
+  onClickButton2 () {
+    this.$toast('不可关闭的弹出框', {
+      showCloseBtn: false
+    })
+  }
+}`,
+        content: `<div>
+          <wlin-button @click="onClickButton1">上方弹出</wlin-button>
+          <wlin-button :showCloseBtn="false" @click="onClickButton2">弹出</wlin-button>
+        </div>`.replace(/^ {8}/gm, '').trim()
       }
     },
     methods: {
@@ -90,3 +97,9 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+.wlin-pre {
+  background-color: #f5f2f0 !important;
+}
+</style>
