@@ -19,5 +19,8 @@ export default {
 
 <style lang="scss" scoped>
 .wlin-tabs-body {
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 10px;
 }
 </style>

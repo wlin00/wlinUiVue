@@ -1,9 +1,10 @@
 <template>
   <div class="wlin-tabs-head">
     <slot></slot>
+    <div class="line" ref="line"></div>
 
     <!-- 插槽：名为action的插槽用于接收tab顶部相关操作按钮 -->
-    <div class="wlin-tabs-head__wrapper">
+    <div class="actions-wrapper">
       <slot name="action"></slot>
     </div>
   </div>
@@ -18,7 +19,13 @@ export default {
     return {};
   },
   methods: {},
-  mounted() {}
+  mounted() {
+    this.eventBus.$on('input', (item, vm) => {
+      const { width, left, top, height } = vm.$el.getBoundingClientRect()
+      this.$refs.line.style.width = `${width}px`
+      this.$refs.line.style.left = `${vm.$el.offsetLeft}px`
+    })
+  }
 };
 </script>
 
@@ -27,13 +34,20 @@ export default {
   display: flex;
   height: 40px;
   justify-content: flex-start;
-  align-items: center;
-  border: 1px solid gray;
-  box-sizing: border-box;
-  padding: 0 15px;
-  &__wrapper {
-    // flex 布局的父盒子中， 如果一个子元素开启margin-left:auto，则会靠在布局最右侧
+  position: relative;
+  border-bottom: solid 1px #ddd;
+  > .line{
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid #39f;
+    transition: all 250ms;
+  }
+  > .actions-wrapper{
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1em;
   }
 }
 </style>

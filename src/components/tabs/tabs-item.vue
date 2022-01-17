@@ -2,7 +2,7 @@
   <div
     class="wlin-tabs-item"
     @click="switchTab"
-    :class="{ 'wlin-tabs-item__active': active }"
+    :class="{ 'active': active }"
   >
     <slot></slot>
   </div>
@@ -34,7 +34,7 @@ export default {
   methods: {
     switchTab() {
       // 点击后，通知中心改变当前选中的tab名
-      this.eventBus.$emit("input", this.name);
+      this.eventBus.$emit("input", this.name, this);
       this.eventBus.$emit("change", this.name);
     }
   },
@@ -46,27 +46,25 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .wlin-tabs-item {
-  position: relative;
-  // 自动延伸，但是选项少不会影响其他的tab
-  // flex: 1 1 0;
-  // flex-grow: 1;
-  // flex-shrink: 0;
+  flex-shrink: 0;
   padding: 0 1em;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 50px;
   cursor: pointer;
-  margin-right: 8px;
-  border: 1px solid #333;
-  min-width: 80px;
-  text-align: center;
-  border-radius: 4px;
-
-  @media screen and (max-width: 500px) {
-    min-width: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  &.active {
+    color: #39f;
+    font-weight: bold;
   }
-
-  &__active {
-    background: lightskyblue;
+  &.disabled {
+    color: grey;
+    cursor: not-allowed;
   }
 }
 </style>
