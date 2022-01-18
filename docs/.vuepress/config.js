@@ -8,6 +8,7 @@ module.exports = {
       {text: '主页', link: '/'},
       {text: 'github', link: 'https://github.com/wlin00'},
       {text: '博客', link: 'https://wlin00.github.io/'},
+      {text: 'vue3.0版', link: 'https://wlin00.github.io/wlinUiVite/'},
     ],
     sidebar: [
       {
@@ -25,6 +26,7 @@ module.exports = {
           '/components/button',
           '/components/input',
           '/components/grid',
+          '/components/switch',
           '/components/layout',
           '/components/tabs',
           '/components/popover',
@@ -34,6 +36,7 @@ module.exports = {
           '/components/cascader',
           '/components/carousel',
           '/components/nav',
+          '/components/dialog',
           '/components/sticky',
         ]
       },

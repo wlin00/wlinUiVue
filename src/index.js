@@ -24,7 +24,10 @@ export {default as Popover} from './components/popover/popover'
 export {default as Toast} from './components/toast/toast'
 export {default as CarouselItem} from './components/carousel/carousel-item'
 export {default as Carousel} from './components/carousel/carousel'
-export {default as Sticky} from './components/sticky'
+export {default as Sticky} from './components/sticky/sticky'
+export {default as Switch} from './components/switch/switch'
+export {default as Dialog} from './components/dialog/dialog'
+
 
 // export {default as FormMixin} from './components/form-mixin'
 // export {default as ClickOutside} from './components/click-outside'

@@ -1,65 +1,17 @@
 <template>
   <div>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <div style="display:flex;justify-content:center;">
-      <div style="width:600px">
-        <wlin-sticky :distance="100">
-          <div style="border:1px solid red;">sticky-inner</div>
-        </wlin-sticky>
-      </div>
-    </div>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-        <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-        <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
-    <p>段落nnnn</p>
- 
-
+    <wlin-switch v-model="bool" />
   </div>
 
   
 </template>
 
 <script>
-import Sticky from './components/sticky/sticky.vue'
+import Switch from './components/switch/switch.vue'
 
 export default {
   components: {
-    "wlin-sticky": Sticky,
+    "wlin-switch": Switch,
   },
   methods: {
  
@@ -68,7 +20,7 @@ export default {
   },
   data() {
     return {
-      
+      bool: false
     }
   }
 };

@@ -13,7 +13,7 @@ title: 快速上手
 import { 
   Button, Input, Popover, Toast, Col, Row,  Pager, Collapse, 
   CollapseItem, Cascader, Layout, Header, Footer, Sider, Content,
-  Tabs, TabsHead, TabsItem, TabsPane, TabsBody, Plugin  } from 'wlinui/src/index'
+  Tabs, TabsHead, TabsItem, TabsPane, TabsBody, Plugin, Switch, Dialog  } from 'wlinui/src/index'
 import Vue from 'vue'
 Vue.use(Plugin)
 
@@ -39,6 +39,8 @@ new Vue({
     'wlin-tabs-body': TabsBody,
     'wlin-tabs-item': TabsItem,
     'wlin-tabs-pane': TabsPane,
+     'wlin-switch': Switch,
+     'wlin-dialog': Dialog,
   }
 })
 ```

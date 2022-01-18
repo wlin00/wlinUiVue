@@ -1,6 +1,6 @@
 {
   "name": "wlinui",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "vue ui框架",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "@vue/composition-api": "^1.4.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.12.0",
