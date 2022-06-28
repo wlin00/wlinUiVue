@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 16px;">
-    <h2>一行js打开弹窗</h2>
+    <h2>（一句话执行）一行js打开弹窗</h2>
 
     <div class="wrap" style="box-sizing:border-box;position:relative;">
       <wlin-button @click="showDialog">打开对话框</wlin-button>
